@@ -14,19 +14,23 @@ func main() {
 	for {
 		line, err := reader.ReadString('\n')
 		if err != nil {
-			log.Fatal(err)
+			log.Print(err)
+			continue
 		}
 
 		line = strings.TrimSpace(line)
 		number, err := strconv.Atoi(line)
 		if err != nil {
-			log.Fatal(err)
+			log.Print(err)
+			continue
 		}
 		if number < 1 {
-			log.Fatal("number is too small")
+			log.Print("number is too small")
+			continue
 		}
 		if number > 10 {
-			log.Fatal("number is too large")
+			log.Print("number is too large")
+			continue
 		}
 
 		fmt.Println(number * 2)

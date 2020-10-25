@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strconv"
+	"strings"
 )
 
 func main() {
@@ -15,6 +17,12 @@ func main() {
 			log.Fatal(err)
 		}
 
-		fmt.Print(line)
+		line = strings.TrimSpace(line)
+		number, err := strconv.Atoi(line)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		fmt.Println(number * 2)
 	}
 }

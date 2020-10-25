@@ -22,6 +22,12 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
+		if number < 1 {
+			log.Fatal("number is too small")
+		}
+		if number > 10 {
+			log.Fatal("number is too large")
+		}
 
 		fmt.Println(number * 2)
 	}

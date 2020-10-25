@@ -9,10 +9,12 @@ import (
 
 func main() {
 	reader := bufio.NewReader(os.Stdin)
-	line, err := reader.ReadString('\n')
-	if err != nil {
-		log.Fatal(err)
-	}
+	for {
+		line, err := reader.ReadString('\n')
+		if err != nil {
+			log.Fatal(err)
+		}
 
-	fmt.Print(line)
+		fmt.Print(line)
+	}
 }

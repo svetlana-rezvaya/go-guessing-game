@@ -17,6 +17,8 @@ func main() {
 	secret := rand.Intn(10) + 1
 	reader := bufio.NewReader(os.Stdin)
 	for {
+		fmt.Print("Enter a number: ")
+
 		line, err := reader.ReadString('\n')
 		if err != nil {
 			log.Print(err)

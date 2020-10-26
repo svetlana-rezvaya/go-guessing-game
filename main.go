@@ -4,12 +4,14 @@ import (
 	"bufio"
 	"fmt"
 	"log"
+	"math/rand"
 	"os"
 	"strconv"
 	"strings"
 )
 
 func main() {
+	secret := rand.Intn(10) + 1
 	reader := bufio.NewReader(os.Stdin)
 	for {
 		line, err := reader.ReadString('\n')
@@ -32,7 +34,12 @@ func main() {
 			log.Print("number is too large")
 			continue
 		}
+		if number != secret {
+			log.Print("you guessed wrong")
+			continue
+		}
 
-		fmt.Println(number * 2)
+		fmt.Println("you guessed right")
+		break
 	}
 }

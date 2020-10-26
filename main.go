@@ -8,9 +8,12 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 )
 
 func main() {
+	rand.Seed(time.Now().UnixNano())
+
 	secret := rand.Intn(10) + 1
 	reader := bufio.NewReader(os.Stdin)
 	for {

@@ -18,6 +18,9 @@ func main() {
 	min := flag.Int("min", 1, "minimal secret")
 	max := flag.Int("max", 10, "maximal secret")
 	flag.Parse()
+	if *max <= *min {
+		log.Fatal("maximal secret should exceed minimal secret")
+	}
 
 	secret := rand.Intn(*max-*min+1) + *min
 	reader := bufio.NewReader(os.Stdin)

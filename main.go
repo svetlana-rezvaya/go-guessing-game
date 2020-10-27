@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"flag"
 	"fmt"
 	"log"
 	"math/rand"
@@ -14,7 +15,11 @@ import (
 func main() {
 	rand.Seed(time.Now().UnixNano())
 
-	secret := rand.Intn(10) + 1
+	min := flag.Int("min", 1, "minimal secret")
+	max := flag.Int("max", 10, "maximal secret")
+	flag.Parse()
+
+	secret := rand.Intn(*max-*min+1) + *min
 	reader := bufio.NewReader(os.Stdin)
 	for {
 		fmt.Print("Enter a number: ")
@@ -31,11 +36,11 @@ func main() {
 			log.Print("unable to parse the number: ", err)
 			continue
 		}
-		if number < 1 {
+		if number < *min {
 			log.Print("number is too small")
 			continue
 		}
-		if number > 10 {
+		if number > *max {
 			log.Print("number is too large")
 			continue
 		}

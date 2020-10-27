@@ -21,14 +21,14 @@ func main() {
 
 		line, err := reader.ReadString('\n')
 		if err != nil {
-			log.Print(err)
+			log.Print("unable to read the line: ", err)
 			continue
 		}
 
 		line = strings.TrimSpace(line)
 		number, err := strconv.Atoi(line)
 		if err != nil {
-			log.Print(err)
+			log.Print("unable to parse the number: ", err)
 			continue
 		}
 		if number < 1 {
@@ -44,7 +44,7 @@ func main() {
 			continue
 		}
 
-		fmt.Println("you guessed right")
+		fmt.Println("You guessed right!")
 		break
 	}
 }
